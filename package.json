@@ -27,7 +27,7 @@
     "react-dropdown": "^1.9.2",
     "react-grid-gallery": "^0.5.5",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "^1.1.5",
+    "react-scripts": "2.1.2",
     "react-select": "^4.1.0",
     "react-tooltip": "^4.2.17",
     "reactstrap": "^8.9.0",
@@ -50,7 +50,6 @@
   "browserslist": {
     "production": [
       ">0.2%",
-      "not dead",
       "not op_mini all"
     ],
     "development": [
