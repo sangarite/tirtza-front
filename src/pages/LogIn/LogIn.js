@@ -60,7 +60,7 @@ class LogIn extends Component {
     console.log('handle click');
     if (this.state.isValidForm){
       this.props.toggleSpinner();
-      fetch('http://localhost:3003/login', {
+      fetch('https://famlink-server.web.app/login', {
           method: 'POST',
           headers: {'Content-Type': 'application/json'},
           body: JSON.stringify({
