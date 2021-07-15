@@ -21,7 +21,7 @@ class GroupHome extends React.Component{
  
     componentDidMount() {
         if (this.props.groupId) {
-            fetch(`http://localhost:3003/group/${window.location.href.split('/').pop()}`)
+            fetch(`https://famlink-server.web.app/group/${window.location.href.split('/').pop()}`)
             .then(res => res.json())
             .then(data => this.setState({GroupName: data[0].GroupName}))
             .catch(err => console.log(err))
@@ -47,8 +47,8 @@ class GroupHome extends React.Component{
             if (clicked.isConfirmed) {
                 const email_to = clicked.value;
                 const subject =  ' הוזמנת להצטרף לקבוצת '+ this.state.GroupName ;
-                const message = 'שלום וברכה' + '\n' + 'הנך מוזמן להצטרף לקבוצה משפחתית ב' + 'Family Link'+ '\n' + ' הכנס לקישור הבא: ' + 'http://localhost:3000/Register'+ '\n' + ' צור משתמש עם קוד הקבוצה הזה: ' + this.props.groupId;
-                fetch('http://localhost:3003/sendInvetation', {
+                const message = 'שלום וברכה' + '\n' + 'הנך מוזמן להצטרף לקבוצה משפחתית ב' + 'Family Link'+ '\n' + ' הכנס לקישור הבא: ' + 'https://famlink-server.web.app/Register'+ '\n' + ' צור משתמש עם קוד הקבוצה הזה: ' + this.props.groupId;
+                fetch('https://famlink-server.web.app/sendInvetation', {
                     method: 'POST',
                     headers: {'Content-Type': 'application/json'},
                     body: JSON.stringify({

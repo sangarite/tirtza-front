@@ -20,7 +20,7 @@ class Photo extends React.Component{
     componentDidMount() {
         console.log('component did mount');
         this.props.toggleSpinner();
-        fetch(`http://localhost:3003/pictures/${this.props.groupId}`)
+        fetch(`https://famlink-server.web.app/pictures/${this.props.groupId}`)
         .then(response => response.json())
         .then(data => {
             this.props.toggleSpinner();
@@ -32,8 +32,8 @@ class Photo extends React.Component{
             this.setState({ images, count});
             const images_for_gallery = images.map((img) => { 
                 return {
-                    src: `http://localhost:3003/${img}`,
-                    thumbnail: `http://localhost:3003/${img}`,
+                    src: `https://famlink-server.web.app/${img}`,
+                    thumbnail: `https://famlink-server.web.app/${img}`,
                     thumbnailWidth: 320,
                     thumbnailHeight: 174
             }
@@ -55,7 +55,7 @@ class Photo extends React.Component{
         const name = `${this.props.groupId}-${this.state.count}.${type}`;
         var formData = new FormData();
         formData.append('photo', img, name);
-        fetch('http://localhost:3003/pictures', {
+        fetch('https://famlink-server.web.app/pictures', {
             method: 'POST',
             body: formData
         })
@@ -65,7 +65,7 @@ class Photo extends React.Component{
         this.setState({count: this.state.count + 1})
         this.setState(prevState => ({ images: [...prevState.images, name] }))
 
-        fetch('http://localhost:3003/addpicture', {
+        fetch('https://famlink-server.web.app/addpicture', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json'},
         body: JSON.stringify({
@@ -77,7 +77,7 @@ class Photo extends React.Component{
         .then(data => window.alert(data))
         .catch(err => console.log(err))
 
-        fetch(`http://localhost:3003/pictures/${this.props.groupId}`)
+        fetch(`https://famlink-server.web.app/pictures/${this.props.groupId}`)
         .then(response => response.json())
         .then(data => {
             let images = Object.values(data).map((value) => value.ImageName);
@@ -88,8 +88,8 @@ class Photo extends React.Component{
             this.setState({ images, count});
             const images_for_gallery = images.map((img) => { 
                 return {
-                    src: `http://localhost:3003/${img}`,
-                    thumbnail: `http://localhost:3003/${img}`,
+                    src: `https://famlink-server.web.app/${img}`,
+                    thumbnail: `https://famlink-server.web.app/${img}`,
                     thumbnailWidth: 320,
                     thumbnailHeight: 174
             }

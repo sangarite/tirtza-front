@@ -60,7 +60,7 @@ class Calendar extends Component {
   componentDidMount() {
     if (this.props.groupId) {
       this.props.toggleSpinner();
-      fetch(`http://localhost:3003/calendar/${this.props.groupId}`)
+      fetch(`https://famlink-server.web.app/calendar/${this.props.groupId}`)
       .then(res => res.json())
       .then(data => {
         this.props.toggleSpinner();
@@ -123,7 +123,7 @@ class Calendar extends Component {
         this.setState({CalendarEvent: updatedEvents});
       }
      })
-    fetch(`http://localhost:3003/calendar/removeEvent`, {
+    fetch(`https://famlink-server.web.app/calendar/removeEvent`, {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({
@@ -158,7 +158,7 @@ class Calendar extends Component {
     console.log(this.state.CalendarEvent)
     console.log(id)
     console.log(newDate)
-    fetch(`http://localhost:3003/calendar/updateEvent`, {
+    fetch(`https://famlink-server.web.app/calendar/updateEvent`, {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({
@@ -196,7 +196,7 @@ class Calendar extends Component {
     console.log('AddEventHandle')
     this.AddEvent(id, this.state.eventName, this.state.fromDate);
     console.log(this.state.CalendarEvent)
-    fetch(`http://localhost:3003/calendar/addEvent`, {
+    fetch(`https://famlink-server.web.app/calendar/addEvent`, {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({

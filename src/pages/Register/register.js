@@ -113,7 +113,7 @@ class Register extends Component {
     onSubmit = () => {
         if (this.state.isValidForm) {
             this.props.toggleSpinner();
-            fetch('http://localhost:3003/register', {
+            fetch('https://famlink-server.web.app/register', {
                 method: 'post',
                 headers: { 'Content-Type': 'application/json'},
                 body: JSON.stringify({ 

@@ -28,7 +28,7 @@ function FamilyTree(props) {
         console.log('updating tree: ', data);
         if (treeData !== null && treeData !== 'undefined') {
             props.toggleSpinner();
-            await fetch(`http://localhost:3003/pedigree`, {
+            await fetch(`https://famlink-server.web.app/pedigree`, {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({
@@ -56,7 +56,7 @@ function FamilyTree(props) {
         console.log('getting data from server');
         if (props.groupId) {
             props.toggleSpinner();
-            fetch(`http://localhost:3003/pedigree/${props.groupId}`)
+            fetch(`https://famlink-server.web.app/pedigree/${props.groupId}`)
             .then(data => data.json())
             .then(tree => {
                 console.log('tree from server: ', tree)
@@ -111,7 +111,7 @@ function FamilyTree(props) {
             },
             children: [],
         };
-        fetch(`http://localhost:3003/createPedigree`, {
+        fetch(`https://famlink-server.web.app/createPedigree`, {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({
@@ -315,7 +315,7 @@ function FamilyTree(props) {
                 const name = `tree-${id}.${type}`;
                 var formData = new FormData;
                 formData.append('photo', img, name);
-                fetch('http://localhost:3003/pictures', {
+                fetch('https://famlink-server.web.app/pictures', {
                 method: 'POST',
                 body: formData
                 })
@@ -323,7 +323,7 @@ function FamilyTree(props) {
                 .catch(err => console.log('picture post err: ', err))
 
                 //add the picture to the pictures table
-                fetch('http://localhost:3003/addpicture', {
+                fetch('https://famlink-server.web.app/addpicture', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json'},
                     body: JSON.stringify({
@@ -515,7 +515,7 @@ function FamilyTree(props) {
                         const name = `tree-${nodeDatum.id}.${type}`;
                         var formData = new FormData;
                         formData.append('photo', img, name);
-                        fetch('http://localhost:3003/pictures', {
+                        fetch('https://famlink-server.web.app/pictures', {
                         method: 'POST',
                         body: formData
                         })
@@ -523,7 +523,7 @@ function FamilyTree(props) {
                         .catch(err => console.log('picture post error: ', err))
 
                         //add the picture to the pictures table
-                        fetch('http://localhost:3003/addpicture', {
+                        fetch('https://famlink-server.web.app/addpicture', {
                             method: 'POST',
                             headers: { 'Content-Type': 'application/json'},
                             body: JSON.stringify({

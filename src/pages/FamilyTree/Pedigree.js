@@ -63,7 +63,7 @@ function Pedigree(props) {
     const name = `tree${id}`;
     var formData = new FormData();
     formData.append('photo', img, name);
-    fetch('http://localhost:3003/pictures', {
+    fetch('https://famlink-server.web.app/pictures', {
       method: 'POST',
       body: formData
     })
@@ -71,7 +71,7 @@ function Pedigree(props) {
     .catch(err => console.log(err))
 
     //add the picture to the pictures table
-    fetch('http://localhost:3003/addpicture', {
+    fetch('https://famlink-server.web.app/addpicture', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json'},
         body: JSON.stringify({
